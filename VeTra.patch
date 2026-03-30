@@ -1,0 +1,40 @@
+diff --git a/VeTra.py b/VeTra.py
+index dbd8280..4b9b4ef 100644
+--- a/VeTra.py
++++ b/VeTra.py
+@@ -45,7 +45,16 @@ import time
+ 
+ 
+ #matplotlib.use('Agg')
+-rpy2.robjects.numpy2ri.activate()
++
++#rpy2.robjects.numpy2ri.activate()
++from rpy2.robjects.conversion import Converter, localconverter
++from rpy2.robjects import default_converter
++# Create a converter that includes NumPy conversion
++numpy_cv = default_converter + rpy2.robjects.numpy2ri.converter
++# Set it globally (closest equivalent to old activate())
++import rpy2.robjects.conversion as conversion
++conversion.set_conversion(numpy_cv)
++
+ princurve = importr('princurve', on_conflict="warn")
+ 
+ 
+@@ -88,7 +97,7 @@ class VeTra:
+         nr,nc = B.shape
+         Br = ro.r.matrix(B, nrow=nr, ncol=nc)
+         ro.r.assign("B", Br)
+-        PrincipalCurveLambda = np.array(princurve.principal_curve(B).rx2('lambda'))
++        PrincipalCurveLambda = np.array(rpy2.robjects.vectors.ListVector(princurve.principal_curve(B)).rx2('lambda'))
+         cutsize = int(len(PrincipalCurveLambda)*0.1)
+         index = np.argsort(PrincipalCurveLambda)
+         inver_index = np.argsort(-PrincipalCurveLambda)
+@@ -308,7 +317,7 @@ class VeTra:
+             new_cluster = np.unique(new_cluster)
+             new_cluster_list.append(new_cluster)
+         
+-        new_embeddingGraphShortestpathTotal = np.array(new_cluster_list)
++        new_embeddingGraphShortestpathTotal = np.array(new_cluster_list, dtype=object)
+         
+         embeddingGraphShortestpath = new_embeddingGraphShortestpathTotal
+         self.embeddingGraphShortestpath = embeddingGraphShortestpath

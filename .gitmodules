@@ -1,0 +1,3 @@
+[submodule "VeTra"]
+	path = VeTra
+	url = https://github.com/wgzgithub/VeTra.git

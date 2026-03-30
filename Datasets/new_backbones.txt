@@ -1,0 +1,29 @@
+backbone_double_bifurcating <- function() {
+  bblego(
+    bblego_start("A", type = "simple"),
+    bblego_linear("A", "B"),
+    bblego_branching("B", c("C", "D")),
+    bblego_end("C"),
+    bblego_linear("D", "E"), 
+    bblego_branching("E", c("F", "G")), 
+    bblego_end("F"), 
+    bblego_end("G")
+  )               
+}
+
+backbone_triple_bifurcating <- function() {
+  bblego(
+    bblego_start("A", type = "simple"),
+    bblego_linear("A", "B"),
+    bblego_branching("B", c("C", "D")),
+    bblego_end("C"),
+    bblego_linear("D", "E"), 
+    bblego_branching("E", c("F", "G")), 
+    bblego_end("F"), 
+    bblego_linear("G", "H"),
+    bblego_branching("H", c("I", "J")),
+    bblego_end("I"),
+    bblego_end("J")
+  )               
+}
+
