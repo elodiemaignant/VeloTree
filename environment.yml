@@ -1,0 +1,17 @@
+name: VeloTree
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - rpy2=3.6.6
+  - r-princurve
+  - pip
+  - pip:
+      - scikit-learn
+      - networkx
+      - rdata
+      - statsmodels
+      - matplotlib
+      - cellpath=1.0
+      - tqdm
+
