@@ -1,6 +1,4 @@
 import numpy as np
-from sklearn.decomposition import PCA
-from sklearn.neighbors import NearestNeighbors
 
 def smoothing_kernel(point, control_points, sigma):
     k = np.exp(-np.linalg.norm(control_points - point, axis=1) ** 2 / (2. * sigma ** 2))
