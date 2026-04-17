@@ -7,16 +7,16 @@ dependencies:
   - r-princurve
   - pip
   - pip:
-      - anndata=0.12.6
-      - cellpath=1.0
+      - anndata==0.12.6
+      - cellpath==1.0
       - matplotlib
-      - networkx=3.4.2
-      - numpy=1.26.4
-      - rdata=1.0.0
-      - scanpy=1.11.1
+      - networkx==3.4.2
+      - numpy==1.26.4
+      - rdata==1.0.0
+      - scanpy==1.11.1
       - scikit-learn
-      - scipy=1.13.0
-      - scvelo=0.2.5
+      - scipy==1.13.0
+      - scvelo
       - statsmodels
       - tqdm
 
