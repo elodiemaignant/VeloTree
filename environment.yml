@@ -16,7 +16,7 @@ dependencies:
       - scanpy==1.11.1
       - scikit-learn
       - scipy==1.13.0
-      - scvelo==0.2.5
+      - scvelo
       - statsmodels
       - tqdm
 
